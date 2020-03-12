@@ -16,10 +16,13 @@ const forecast = (latitude, longitude, callback) => {
     } else {
       const temp = body.currently.temperature;
       const pre = body.currently.precipProbability;
+      const tempHigh = body.daily.temperatureHigh;
+      const tempLow = body.daily.temperatureLow;
 
       callback(
         undefined,
         `It is currently ${temp} degrees, and there is ${pre} % chance of rain.`
+        `The high today is ${tempHigh} degrees and the low today is ${tempLow} degrees.`
       );
     }
   });
